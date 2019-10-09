@@ -1,0 +1,17 @@
+put(): Everything apart from bubbleUp() and bubbleDown() run in constant time. From lab 2 we see that bubbleUp() and
+bubbleDown() both run in O(log(n)) amortized, which makes this method run in O(log(n)) amortized. 
+
+get(): From the java documentation one can conclude since we use HashMap.containsKey, HashMap.get and ArrayList.get
+this method has time complexity O(1). 
+
+peek(): O(1) since the get method of an ArrayList has this time complexity.
+
+poll(): Everything has constant time apart from bubbleDown which has O(log(n)) amortized time complexity.
+
+
+PART B -------------------------------------------------------------
+
+The only significant part of the code for the time complexity is the while loop. This will run for a total of
+|V| times, where |V| is the amount of vertices. Then we use the poll() method of APrioMap, which has time complexity O(log(n)), which then vill have O(log(|V|) since we can have at most |V| nodes in the PrioMap.  
+The for-loop for the neighbors will run |E| times in total, where |E| is the total amount of edges in the graph. Motivation for this claim: since we keep track of which nodes we have visited we are sure that an already visited edge will not be visited again, therefore, each edge will be visited at most once, implying that the inner for loop will run total O(|E|) times.  
+In the innermost if-statement we use the put method of APrioMap, which runs in O(log(n)) according to the above analysis. Thus, shortestPath() runs in O((|V|+|E|)log(|v|)), since our n is the number of vertices. 

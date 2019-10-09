@@ -1,0 +1,2 @@
+a) converges towards (-2.25,-3.065) with 9 and 10 for SD and 1 for NMUS. 
+b) the gradient is given by [4(x1+1)+5;16(x2+3)+1]; The Hessian is [4 0;0;16] with Eigenvalues 4 and 16 so if the point is optimal then it is also a global min (the function is convex), the gradient evaluated in the found point is 

@@ -1,0 +1,28 @@
+﻿Vi kommer ha komplexitet O(log(n)).
+
+Contains-metoden har med andra ord enbart ett anrop av komplexitet O(log n).  
+
+
+När vi kör "benchmark"-testet givet i uppgiften resulterar detta i de empiriska värdena: 
+ 
+n=     10       s=    8,2
+  
+n=     100      s=    15,3
+    
+n=     1000     s=    48,8
+   
+n=     10000    s=    61,5
+  
+n=     100000   s=    71,3
+
+
+
+
+Vi ser att den är bättre än linjär ty vi ha n=10000 ger 61.5, hade vi då haft linjärt, hade vi haft en tid på ungefär 600 ns för 100000. Vi ser att tiden det tar ökar med ungefär 10-15 nanosekunder varje mulitplikation med 10, d.v.s. vi får hela tiden en additiv ökning. Detta talar för logaritmiskt beteende eftersom log(10*N) = log(10) + log(N), d.v.s. ökar additivt.  
+ 
+
+
+
+
+Betrakta funktionen Contains. Frånsett jämförelser, med O(1), så är det enda som tar mer tid anropet till BinarySearch-metoden.
+Den är en while-loop där index halveras i varje iteration. Givet då ett indata av storlek n=2^k(+1), innebär detta i värsta fall kommer vi behöva halvera k gånger, det vill säga k iterationer. Då n=2^k+(1) innebär detta att vi har O(log n). ( I bästa fall har vi dock enbart en iteration). 
